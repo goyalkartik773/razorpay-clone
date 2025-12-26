@@ -7,9 +7,10 @@ package-lock.json
 
 BANNER_PROMPT.md
 DEPLOYMENT_GUIDE.md
+CSS_FIX.md
 
 # Build outputs
-dist/
+# dist/ - KEEP THIS FOR DEPLOYMENT (contains compiled CSS)
 build/
 output.css
 *.css.map

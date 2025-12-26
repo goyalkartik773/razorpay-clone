@@ -1,5 +1,9 @@
 {
+  "name": "razorpay-clone",
+  "version": "1.0.0",
   "scripts": {
+    "build": "npx tailwindcss -i ./main.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./main.css -o ./dist/output.css --watch",
     "start": "vite"
   },
   "devDependencies": {
