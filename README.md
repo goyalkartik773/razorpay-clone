@@ -11,6 +11,10 @@
 [![Mobile Friendly](https://img.shields.io/badge/Mobile_Friendly-Yes-success?style=for-the-badge)](https://github.com)
 [![Deploy](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 
+### 🌐 [**LIVE DEMO**](https://razorpay-clone-devkartik.vercel.app/) 🚀
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://razorpay-clone-devkartik.vercel.app/)
+
 </div>
 
 ---
@@ -123,11 +127,13 @@ Fully responsive design on mobile devices.
 
 ## 🌐 Live Demo
 
-Deploy your own version in minutes!
+### 🚀 **[View Live Site](https://razorpay-clone-devkartik.vercel.app/)**
 
-### Deploy to Vercel (Free & Easy)
+The project is deployed and live on Vercel! Click the link above to see it in action.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone)
+### Want to deploy your own version?
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/razorpay-clone)
 
 1. Click the button above or go to [vercel.com](https://vercel.com)
 2. Sign in with GitHub
