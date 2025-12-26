@@ -1,0 +1,631 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CUSTOM ANIMATIONS & KEYFRAMES
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(30, 144, 255, 0.8), 0 0 60px rgba(30, 144, 255, 0.4);
+    }
+}
+
+/* ============================================
+   SMOOTH SCROLLING & BASE STYLES
+   ============================================ */
+
+* {
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1E90FF 0%, #0066CC 100%);
+    border-radius: 10px;
+    border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0066CC 0%, #004C99 100%);
+}
+
+/* ============================================
+   UTILITY CLASSES FOR ANIMATIONS
+   ============================================ */
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+.animate-slide-in {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+.animate-rotate-in {
+    animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Delayed animations for staggered effects */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* ============================================
+   GLASSMORPHISM EFFECTS
+   ============================================ */
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+
+.gradient-blue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-ocean {
+    background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 50%, #87CEEB 100%);
+}
+
+.gradient-sunset {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+}
+
+.gradient-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #1E90FF, #00BFFF, #1E90FF);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s linear infinite;
+}
+
+/* ============================================
+   ENHANCED HOVER EFFECTS
+   ============================================ */
+
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(30, 144, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform 0.5s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.hover-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.hover-shine:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+
+.premium-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 1px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1E90FF, #00BFFF, #1E90FF);
+    background-size: 200% auto;
+    animation: gradientShift 3s linear infinite;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 50px rgba(30, 144, 255, 0.2),
+        0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-primary {
+    background: linear-gradient(135deg, #1E90FF 0%, #0066CC 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(30, 144, 255, 0.5);
+}
+
+.btn-secondary {
+    background: white;
+    color: #1E90FF;
+    border: 2px solid #1E90FF;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #1E90FF;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3);
+}
+
+/* ============================================
+   BACKGROUND PATTERNS
+   ============================================ */
+
+.dotted-background {
+    background-image: radial-gradient(circle, rgba(30, 144, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.grid-background {
+    background-image:
+        linear-gradient(rgba(30, 144, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 144, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1E90FF, transparent);
+}
+
+/* ============================================
+   NAVBAR ENHANCEMENTS
+   ============================================ */
+
+.navbar-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar-scrolled {
+    background: rgba(1, 0, 48, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   LOADING & SKELETON STATES
+   ============================================ */
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+    .premium-card {
+        padding: 1.5rem;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.focus-visible:focus {
+    outline: 2px solid #1E90FF;
+    outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1E90FF;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0066CC;
+}
+
+/* Utility Classes */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-on-scroll.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(90deg, #1E90FF, #00BFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-slide {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, #1E90FF, #0066CC);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0066CC, #004C99);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+}

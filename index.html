@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Razorpay</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    #lightning-icon {
+      /* width: 100px;
+    height: 100px; */
+
+
+      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L3 14H11L9 22L19 10H11L13 2Z" stroke="%23BFEFFF" stroke-width="0.5" fill="none"/></svg>') no-repeat center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #lightning-icon:hover {
+      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L3 14H11L9 22L19 10H11L13 2Z" fill="%23BFEFFF"/></svg>') no-repeat center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="w-full overflow-x-hidden relative">
+  <!-- Navbar -->
+  <section class="w-full h-auto">
+    <div class=" truncate bg-[#010030] flex justify-around  w-full  h-20 items-center ">
+      <a class=" " href="#"><img src="https://razorpay-clone.netlify.app/assets/logo-803a4a65.svg" alt="logo"
+          class="absolute h-7  top-7 left-28" /></a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex gap-x-6  mt-7 pl-56  ">
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Payment</a>
+          <div class="absolute w-full h-1 bottom-0.5  bg-[#1E90FF] opacity-0 group-hover:opacity-100"></div>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Banking</a>
+          <div class="absolute w-full h-1 bottom-0.5  bg-[#1E90FF] opacity-0 group-hover:opacity-100"></div>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Corporate Card</a>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Payroll</a>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Resources</a>
+          <div class="absolute w-full h-1 bottom-0.5  bg-[#1E90FF] opacity-0 group-hover:opacity-100"></div>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Support</a>
+          <div class="absolute w-full h-1 bottom-0.5  bg-[#1E90FF] opacity-0 group-hover:opacity-100"></div>
+        </li>
+        <li
+          class="relative group text-white font-mullish hover:text-[#1E90FF] cursor-pointer font-medium transition-all duration-100 pb-7">
+          <a href="#">Pricing</a>
+          <div class="absolute w-full h-1 bottom-0.5  bg-[#1E90FF] opacity-0 group-hover:opacity-100"></div>
+        </li>
+        <li><img src="https://razorpay-clone.netlify.app/assets/india-flag-62cf945b.svg" alt="flag" /></li>
+      </ul>
+      
+      <!-- Desktop Buttons -->
+      <div class="hidden lg:flex gap-x-6  mr-20">
+        <button class="text-white border border-[#1E90FF] py-2 px-4"><b>Log in</b></button>
+        <button
+          class="relative text-blue-400 border rounded-sm bg-white py-2 pr-8 pl-4 font-semibold hover:text-[#1E90FF]">Sign
+          Up<span class="absolute  bottom-3 pl-2 left-23 font-bold text-xl">&#8594;</span></button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden text-white mr-8 z-50">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden">
+      <div class="fixed right-0 top-0 h-full w-80 bg-[#010030] shadow-2xl transform transition-transform duration-300 ease-in-out translate-x-full" id="mobile-menu-drawer">
+        <!-- Close Button -->
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Navigation Links -->
+        <nav class="flex flex-col p-8 mt-16 space-y-6">
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Payment</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Banking</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Corporate Card</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Payroll</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Resources</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Support</a>
+          <a href="#" class="text-white font-mullish text-lg hover:text-[#1E90FF] transition-colors">Pricing</a>
+          
+          <div class="pt-6 border-t border-gray-700 space-y-4">
+            <button class="w-full text-white border border-[#1E90FF] py-3 px-4 rounded font-semibold hover:bg-[#1E90FF] transition-colors">Log in</button>
+            <button class="w-full bg-white text-blue-600 py-3 px-4 rounded font-semibold hover:bg-blue-50 transition-colors">Sign Up</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+  <!-- hero section -->
+  <section class="w-full bg-[#010030] grid-background">
+    <div class="flex justify-center items-center mx-auto  max-w-[1030px]">
+      <!-- left box -->
+      <div class="relative  flex flex-col  items-start gap-y-6 pt-10 top-0 left-0 mb-[100px]">
+        <h1 class="font-mullish text-4xl text-[white] leading-10 font-semibold">Power your </br>finance, grow your
+          business</h1>
+        <div class="h-1 w-6 bg-[#44f544]"></div>
+        <p class="font-mullish text-[#ffffffc6]">Accept payments from customers. Automate payouts to vendors &
+          employees. Never run out of working capital.</p>
+        <button
+          class="btn-primary hover-shine">Sign
+          Up Now</button>
+      </div>
+      <!-- right box -->
+      <img class="max-w-[695px]" src="https://razorpay-clone.netlify.app/assets/hero-illustration-783a8736.jpg"
+        width="698px" alt="Paymentimg">
+    </div>
+  </section>
+  <!-- shape part -->
+  <div class="w-103% h-auto  left-0 right-0 absolute ]">
+    <img class="" src="https://razorpay-clone.netlify.app/assets/hero-shape-55e07e29.svg" alt="shapeimg" width="100%">
+  </div>
+
+  <!--Payment Suite-->
+  <section class="w-full relative  mt-[152px] h-auto">
+    <img class="relative mt-[13px] ml-[160px] inline-block loading-lazy -z-10"
+      src="data:image/png;base64,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"
+      alt="bb1img" height="233px" width="167px">
+    <img class=" relative -z-10 inline-block ml-[754px] mt-[90px] loading-lazy"
+      src="data:image/png;base64,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"
+      alt="bb2img" height="233px" width="167px">
+    <h2 class="   ml-[420px] top-[-150px] text-2xl font-mullish font-[690] relative">Accept Payments with Razorpay
+      Payment Suite</h2>
+    <div class="h-1 w-6 ml-[675px] mt-[-135px] bg-green-400"></div>
+    <div class="border rounded mt-[10px] mx-[47px] ml-[45px] shadow-sm bg-white z-0">
+      <!--left box-->
+      <div class="relative  w-[1040px] flex flex-col gap-y-12  pt-[50px] pl-[120px]  bottom-[-50px]">
+        <h1 class="   text-3xl font-mullish font-semibold ">Supercharge your business with the <br /> all-powerful <span
+            class="text-[dodgerblue]">Payment Gateway</span></h1>
+        <ul class="text-[black] font-mullish space-y-2">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            100+ Payment Methods
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            Industry Leading Success Rate
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            Superior Checkout Experience
+          </li>
+          <li class="flex ">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            Easy to Integrate
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            Instant Settlements from day 1
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+            In-depth Reporting and Insights
+          </li>
+        </ul>
+        <div class="mb-[50px]">
+          <button
+            class=" font-semibold border-[black]  rounded-[4px] text-[white] font-mullish bg-[dodgerblue] ml-[3px] transition-all duration-100ms p-[10px]  hover:bg-[#437dfb]">
+            Sign Up Now
+          </button>
+          <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px] my-[10px] transition-all duration-200 hover:text-[#47475a]"
+            href="#">Know More <span class="absolute  bottom-3 pl-2 left-23 font-bold text-xl">&#8594;</span></a>
+        </div>
+      </div>
+      <div class="mx-[560px] mt-[-450px] max-w-[600px]">
+        <img class="max-w-[600px]" src="https://razorpay-clone.netlify.app/assets/payment-suite-f883499d.png"
+          alt="paymentgtyimg">
+      </div>
+    </div>
+
+  </section>
+
+  <!--grid time-->
+  <section class="w-full  h-auto">
+    <div class=" grid grid-flow-row grid-rows-2 grid-cols-3 w-[1100px] h-[500px] gap-4 mt-[50px] mx-auto">
+      <!--box1-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px]  rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1 stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px] ">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!--box2-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px]    rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1 stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px]">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!--box3-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px]    rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1 stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px]">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!--box4-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px]    rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1  stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px]">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!--box-5-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px]    rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1 stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px]">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!--box-6-->
+      <div class=" relative flex w-full h-full transition duration-300  hover:scale-105 ease-in-out">
+        <!--toproundimg-->
+        <img class="mx-[285px] rounded-full w-12 h-12 bg-[dodgerblue]"
+          src="https://razorpay-clone.netlify.app/assets/payment-link-icon-68c91ae5.svg" alt="roundimg">
+        <!--box-shape using svg tag -->
+        <svg class="stroke-1 stroke-[#dedee0]  absolute w-full h-full top-[-20px]" viewBox="0 0 349.32501220703125 225"
+          xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+          <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#fff"></path>
+        </svg>
+        <!--contentminibox-->
+        <div class="mt-[40px] absolute flex flex-col space-between ml-[20px]">
+          <h3 class="mt-[-40px] text-[19px] font-mulish font-semibold ">Payment Links</h3>
+          <p class="font-mulish mt-[20px] text-[grey]">Share payment link via an email, SMS, messenger, chatbot etc. and
+            get paid immediately</p>
+          <div class="flex items-center mt-[40px] group">
+            <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+              href="#">Know More</a>
+            <svg
+              class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!--feature section1-->
+  <section class="relative w-full bg-[#181c2e] h-[1150px] ">
+    <!-- <svg class="absolute top-0 left-0 w-full h-[1300px]" viewBox="0 0 1440 300" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <polygon points="0,0 1440,40 1440,260 1000,300 0,300" fill="#181c2e" />
+    </svg> -->
+    <div class=" relative w-ful ">
+      <h1 class="  mt-[110px] pt-[20px] font-mulish font-[800] text-2xl ml-[420px] leading-1.5 text-white">Explore
+        Razorpay
+        Business Banking</h1>
+      <div class="w-6 h-1 bg-green-400 mx-auto mt-[6px]"></div>
+      <img class="absolute w-[130px] mt-[47px] " src="https://razorpay-clone.netlify.app/assets/x-flame-1-12c499a3.png "
+        alt="bolt1img">
+      <img class="absolute -top-[-310px] -left-[-1100px] w-[200px]"
+        src="https://razorpay-clone.netlify.app/assets/x-flame-2-9092ee28.png" alt="bolt2img">
+
+      <!--all content 3 sections-->
+      <div class="flex flex-col">
+
+        <!--contentbox1-->
+        <div class="bg-[#181c2e] relative border border-slate-700 w-[1060px] h-[441px] mx-auto mt-[30px]">
+          <!--left box-->
+          <div class="absolute  w-[520px] h-[400px] flex flex-col space-y-[60px] mt-[60px] ml-[40px]">
+            <h1 class="font-[700] font-mullish text-3xl text-white">Manage your company’s finances with
+              <img class="inline" src="https://razorpay-clone.netlify.app/assets/logo-803a4a65.svg" alt="logo"
+                width="180px">
+              <span class="text-green-500">Buisness Banking</span>
+            </h1>
+            <ul>
+              <li class="flex text-[#ffffffa0]">
+                <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+                <p>Open a fully digital current account</p>
+              </li>
+              <li class="flex text-[#ffffffa0]">
+                <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+                <p>Automate payables & compliment payments</p>
+              </li>
+              <li class="flex text-[#ffffffa0]">
+                <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+                <p>Simplify and track spends with Corporate cards</p>
+              </li>
+              <li class="flex text-[#ffffffa0]">
+                <svg class="w-5 h-5 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+                <p>View financial insights at a glance</p>
+              </li>
+            </ul>
+            <div class="flex items-center">
+              <button
+                class="bg-[dodgerblue] relative p-[10px] w-[150px] rounded-[5px] transition-all duration-200 hover:bg-[#437dfb]">
+                <span class="ml-[-60px] font-semibold font-mullish text-white">Sign Up
+                </span>
+              </button>
+              <div class="w-10 h-14 bg-green-500 skew-x-[30deg] absolute mt-[-0px] mx-[80px] ">
+                <div class="mx-[10px] mt-[15px] text-white">-></div>
+              </div>
+              <div>
+                <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px] my-[10px] transition-all duration-200 hover:text-[#5151fe]"
+                  href="#">Know More
+                  <span class="absolute  bottom-0  left-23 font-bold text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                      class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <img class="absolute ml-[460px]" src="https://razorpay-clone.netlify.app/assets/buisness-banking-f8dca509.png"
+            alt="currentactimg">
+        </div>
+        <!--contentbox2-->
+        <div
+          class="grid grid-cols-3 grid-rows-1 border border-slate-700 w-[1060px] h-[300px] mx-auto mt-[52px] p-[30px] ">
+          <!--box-1-->
+          <div
+            class="cursor-pointer bg-[#181c2e]  relative w-[280px] h-[180px] pt-[-0px] top-[20px]  transition duration-300  hover:scale-105 ease-in-out">
+            <!--img-->
+            <img class="bg-[dodgerblue] rounded-full ml-[233px] mt-[4px]"
+              src="https://razorpay-clone.netlify.app/assets/current-icon-0df323eb.svg" alt="icon1img">
+            <!--boxshape-->
+            <svg class="stroke-1 stroke-[#dedee0]   absolute w-full h-full top-[-10px]"
+              viewBox="0 0 349.32501220703125 225" xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+              <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#181c2e"></path>
+            </svg>
+            <!--content-->
+            <div class=" absolute flex flex-col items-start  border-green-600 mt-[-60px] space-y-2 p-[10px]">
+              <h3 class=" mt-[20px] text-[15px] font-mulish font-[750] text-white">Current Account</h3>
+              <p class="font-mulish pt-[20px] text-[grey] text-sm">Current accounts for fast-growing businesses,
+                supported by the best-in-class technology</p>
+              <div class="relative flex items-center group ml-[-10px]  pt-[1px]">
+                <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+                  href="#">Know More</a>
+                <svg
+                  class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6">
+                  </polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!--box-2-->
+          <div
+            class="cursor-pointer bg-[#181c2e]  relative w-[280px] h-[180px] pt-[-0px] top-[20px]  transition duration-300  hover:scale-105 ease-in-out">
+            <!--img-->
+            <img class="bg-[dodgerblue] rounded-full ml-[233px] mt-[4px]"
+              src="https://razorpay-clone.netlify.app/assets/current-icon-0df323eb.svg" alt="icon1img">
+            <!--boxshape-->
+            <svg class="stroke-1 stroke-[#dedee0]   absolute w-full h-full top-[-10px]"
+              viewBox="0 0 349.32501220703125 225" xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+              <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#181c2e"></path>
+            </svg>
+            <!--content-->
+            <div class=" absolute flex flex-col items-start  border-green-600 mt-[-60px] space-y-2 p-[10px]">
+              <h3 class=" mt-[20px] text-[15px] font-mulish font-[750] text-white">Current Account</h3>
+              <p class="font-mulish pt-[20px] text-[grey] text-sm">Current accounts for fast-growing businesses,
+                supported by the best-in-class technology</p>
+              <div class="relative flex items-center group ml-[-10px]  pt-[1px]">
+                <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+                  href="#">Know More</a>
+                <svg
+                  class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6">
+                  </polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!--box3-->
+          <div
+            class="cursor-pointer bg-[#181c2e]  relative w-[280px] h-[180px] pt-[-0px] top-[20px]  transition duration-300  hover:scale-105 ease-in-out">
+            <!--img-->
+            <img class="bg-[dodgerblue] rounded-full ml-[233px] mt-[4px]"
+              src="https://razorpay-clone.netlify.app/assets/current-icon-0df323eb.svg" alt="icon1img">
+            <!--boxshape-->
+            <svg class="stroke-1 stroke-[#dedee0]   absolute w-full h-full top-[-10px]"
+              viewBox="0 0 349.32501220703125 225" xmlns="http://www.w3.org/2000/svg" \preserveAspectRatio="none">
+              <path d="m 0 6 
+                  a 6 6 0 0 1 6 -6 
+                  h 250.32501220703125 
+                  a 16 16 0 0 1 11 5 
+                  l 77 77 
+                  a 16 16 0 0 1 5 11 
+                  v 126 
+                  a 6 6 0 0 1 -6 6 
+                  h -337.32501220703125 
+                  a 6 6 0 0 1 -6 -6 
+                  z" fill="#181c2e"></path>
+            </svg>
+            <!--content-->
+            <div class=" absolute flex flex-col items-start  border-green-600 mt-[-60px] space-y-2 p-[10px]">
+              <h3 class=" mt-[20px] text-[15px] font-mulish font-[750] text-white">Current Account</h3>
+              <p class="font-mulish pt-[20px] text-[grey] text-sm">Current accounts for fast-growing businesses,
+                supported by the best-in-class technology</p>
+              <div class="relative flex items-center group ml-[-10px]  pt-[1px]">
+                <a class="relative top-0 text-[#1969fd] font-mullish font-[600] ml-[10px]   my-[10px] transition-all duration-200 group-hover:text-[#47475a]"
+                  href="#">Know More</a>
+                <svg
+                  class="feather feather-chevron-right w-5 h-5 text-[dodgerblue] transition-all duration-200 group-hover:text-[#47475a]"
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6">
+                  </polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--content_box-3-->
+        <div class="border border-slate-700 mt-[50px] w-[1060px] mx-auto h-[100px] bg-[#181c2e] relative">
+          <div class="flex justify-around items-center">
+            <h6 class="font-mulish font-xl leading-1.5 font-semibold text-white mt-[30px]">Check out the live demo to
+              learn how RazorpayX works. No sign-up required!</h6>
+
+            <button
+              class="bg-[dodgerblue] relative p-[10px] w-[250px] rounded-[5px]  transition-all duration-200 hover:bg-[#437dfb] mt-[30px] mr-[90px]">
+              <span class="ml-[-60px] font-semibold font-mullish text-white mx-[-10px]"> Check out the demo
+              </span>
+            </button>
+            <div class="w-10 h-14 bg-green-500 skew-x-[30deg] absolute mt-[26px] ml-[700px] ">
+              <div class="mx-[10px] mt-[15px] text-white">-></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+  </section>
+
+  <!--feature section2-->
+  <section class=" w-full h-auto relative">
+    <!-- <svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 2L3 14H11L9 22L19 10H11L13 2Z" fill="#ADD8E6"/>
+</svg> -->
+    <img class=" z-0 relative  ml-[1010px] top-[85px] "
+      src=" data:image/png;base64,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"
+      alt="bb1img">
+    <img class=" z-0   relative ml-[399px] top-[-85px]"
+      src="  data:image/png;base64,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"
+      alt="bb2img">
+    <div class="mx-auto w-[1060px] h-auto relative  mt-[-150px] overflow-visible">
+      <div class="bg-white z-10 grid grid-cols-3 grid-rows-2 h-auto overflow-visible ">
+        <!--box1-->
+        <div class=" flex flex-col space-y-1 pt-[60px] pl-[30px]">
+          <h1 class="text-4xl font-[650] font-mulish leadin-1.5 text-[#222c58ea]">New in the</h1>
+          <h1 class="text-4xl font-[650] font-mulish leadin-1.5 text-[dodgerblue]">Razorpay </h1>
+          <h1 class="text-4xl  font-[650] font-mulish leadin-1.5 text-[#222c58ea]">Product Suite</h1>
+        </div>
+        <!--box2-->
+        <div id="lightning-icon"
+          class="flex flex-col  cursor-pointer space-y-3 p-7 transition duration-300 ease-in-out  shadow-[rgba(0,0,0,0.45)_0px_25px_20px_-20px] hover:scale-105 ">
+          <img class="h-[50px] w-[38px]" src="https://razorpay-clone.netlify.app/assets/razorpayXicon-3345804c.svg"
+            alt="icon1img">
+          <h3 class="text-xl font-[500] font-mullish leading-1.5">Corporate Cards</h3>
+          <p class="text-[grey]">Simplify your recurring, international and team expenses with savings on every spend.
+            Save upto 10 lacs every month.</p>
+          <div
+            class="flex items-center text-[dodgerblue] font-mullish font-[600] transition-all duration-200 hover:text-[#47475a]">
+            <a>Know More</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        <!--box3-->
+        <div id="lightning-icon"
+          class="flex flex-col  cursor-pointer space-y-3 p-7 transition duration-300 ease-in-out  shadow-[rgba(0,0,0,0.45)_0px_25px_20px_-20px] hover:scale-105 ">
+          <img class="h-[50px] w-[38px]" src="https://razorpay-clone.netlify.app/assets/razorpayXicon-3345804c.svg"
+            alt="icon1img">
+          <h3 class="text-xl font-[500] font-mullish leading-1.5">Corporate Cards</h3>
+          <p class="text-[grey]">Simplify your recurring, international and team expenses with savings on every spend.
+            Save upto 10 lacs every month.</p>
+          <div
+            class="flex items-center text-[dodgerblue] font-mullish font-[600] transition-all duration-200 hover:text-[#47475a]">
+            <a>Know More</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        <!--box4-->
+        <div id="lightning-icon"
+          class="flex flex-col cursor-pointer space-y-3 p-7 transition duration-300 ease-in-out shadow-[rgba(0,0,0,0.45)_0px_25px_20px_-20px] hover:scale-105  ">
+          <img class="h-[50px] w-[38px]" src="https://razorpay-clone.netlify.app/assets/razorpayXicon-3345804c.svg"
+            alt="icon1img">
+          <h3 class="text-xl font-[500] font-mullish leading-1.5">Corporate Cards</h3>
+          <p class="text-[grey]">Simplify your recurring, international and team expenses with savings on every spend.
+            Save upto 10 lacs every month.</p>
+          <div
+            class="flex items-center text-[dodgerblue] font-mullish font-[600] transition-all duration-200 hover:text-[#47475a]">
+            <a>Know More</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        <!--box5-->
+        <div id="lightning-icon"
+          class="flex flex-col  cursor-pointer space-y-3 p-7 transition duration-300 ease-in-out shadow-[rgba(0,0,0,0.45)_0px_25px_20px_-20px] hover:scale-105 ">
+          <img class="h-[50px] w-[38px]" src="https://razorpay-clone.netlify.app/assets/razorpayXicon-3345804c.svg"
+            alt="icon1img">
+          <h3 class="text-xl font-[500] font-mullish leading-1.5">Corporate Cards</h3>
+          <p class="text-[grey]">Simplify your recurring, international and team expenses with savings on every spend.
+            Save upto 10 lacs every month.</p>
+          <div
+            class="flex items-center text-[dodgerblue] font-mullish font-[600] transition-all duration-200 hover:text-[#47475a]">
+            <a>Know More</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        <!--box6-->
+        <div id="lightning-icon"
+          class="overflow-hidden flex flex-col cursor-pointer space-y-3 p-7 transition duration-300 ease-in-out  shadow-[rgba(0,0,0,0.45)_0px_25px_20px_-20px] hover:scale-105">
+          <img class="h-[50px] w-[38px]" src="https://razorpay-clone.netlify.app/assets/razorpayXicon-3345804c.svg"
+            alt="icon1img">
+          <h3 class="text-xl font-[500] font-mullish leading-1.5">Corporate Cards</h3>
+          <p class="text-[grey]">Simplify your recurring, international and team expenses with savings on every spend.
+            Save upto 10 lacs every month.</p>
+          <div
+            class="flex items-center text-[dodgerblue] font-mullish font-[600] transition-all duration-200 hover:text-[#47475a]">
+            <a>Know More</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--feature section3-->
+  <section class="w-full relative h-auto mt-[50px]  bg-gradient-to-r from-sky-500 to-indigo-500">
+    <div class="w-[1060px]  relative mx-auto h-auto mt-[70px]">
+      <h3 class="relative w-full ml-[500px] font-mullish font-[700] text-[#ffffffe6] text-2xl pt-[40px]">Features</h3>
+      <div class="w-6 h-1 bg-[#31e631] ml-[535px] mt-[10px]"></div>
+      <p class="relative w-full ml-[347px] mt-[10px] font-mullish font-[590] text-[#ffffffdd]">Empower your business
+        with all the right tools to accept</p>
+      <p class="relative w-full ml-[338px] font-mullish font-[590] text-[#ffffffdd]">online payments and provide the
+        best customer experience</p>
+
+      <!--grid time-->
+      <div class="grid grid-cols-4 grid-rows-2 w-[1060px] mx-auto mt-[15px]">
+        <!--box1-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box2-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box3-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box4-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box5-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box6-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box7-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+        <!--box8-->
+        <div class=" flex flex-col p-[17px] space-y-2">
+          <img class="w-[40px]" src="https://razorpay-clone.netlify.app/assets/instant-activation-icon-5dc1b16b.svg"
+            alt="icon1img">
+          <h3 class="font-mullish text-[white] font-[600] leading-1 text-[18px]">Instant Activation</h3>
+          <p class="font-mullish text-[#ffffffb8]">Get activated and transact within 2 minutes. Completely online
+            onboarding with minimum documentation.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!--Testimonials Section-->
+  <section class="w-full h-auto bg-white py-20 dotted-background section-divider">
+    <div class="w-[1060px] mx-auto">
+      <h2 class="text-center text-4xl font-mullish font-bold text-[#222c58ea] animate-fade-in-up">Trusted by <span class="gradient-text">8 Million+</span> Businesses</h2>
+      <div class="w-6 h-1 bg-green-400 mx-auto mt-4"></div>
+      <p class="text-center text-gray-600 font-mullish mt-4 mb-12">See what our customers have to say about us</p>
+
+      <!-- Testimonial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <!-- Testimonial 1 -->
+        <div class="premium-card hover-lift animate-fade-in-up delay-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 font-mullish mb-6 italic">"Razorpay has completely transformed how we handle payments. The integration was seamless and the success rate is phenomenal. Highly recommended!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+            <div class="ml-4">
+              <h4 class="font-mullish font-semibold text-gray-900">Amit Sharma</h4>
+              <p class="text-sm text-gray-500">CEO, TechStart India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="premium-card hover-lift animate-fade-in-up delay-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 font-mullish mb-6 italic">"The best payment gateway in India! Customer support is excellent and the dashboard provides amazing insights into our business transactions."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">P</div>
+            <div class="ml-4">
+              <h4 class="font-mullish font-semibold text-gray-900">Priya Mehta</h4>
+              <p class="text-sm text-gray-500">Founder, ShopEasy</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="premium-card hover-lift animate-fade-in-up delay-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <p class="text-gray-700 font-mullish mb-6 italic">"Instant settlements and transparent pricing make Razorpay our go-to payment solution. It's reliable, secure, and incredibly easy to use."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">R</div>
+            <div class="ml-4">
+              <h4 class="font-mullish font-semibold text-gray-900">Rahul Verma</h4>
+              <p class="text-sm text-gray-500">CTO, FoodHub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Logos -->
+      <div class="mt-16">
+        <p class="text-center text-gray-500 font-mullish mb-8">Trusted by leading companies</p>
+        <div class="flex justify-center items-center gap-12 flex-wrap">
+          <!-- Swiggy Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-orange-500 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+              <circle cx="12" cy="12" r="3" opacity="0.3"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-orange-500 transition-colors">Swiggy</p>
+          </div>
+
+          <!-- Zomato Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-red-500 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 12 7.4l3.38 4.6L17 10.83 14.92 8H20v6z"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-red-500 transition-colors">Zomato</p>
+          </div>
+
+          <!-- Airtel Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-red-600 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" opacity="0.3"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-red-600 transition-colors">Airtel</p>
+          </div>
+
+          <!-- Ola Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-green-500 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-green-500 transition-colors">Ola</p>
+          </div>
+
+          <!-- BookMyShow Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-pink-500 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-pink-500 transition-colors">BookMyShow</p>
+          </div>
+
+          <!-- Flipkart Icon -->
+          <div class="group cursor-pointer">
+            <svg class="h-12 w-12 text-gray-400 group-hover:text-blue-600 transition-all duration-300 transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+            </svg>
+            <p class="text-xs text-center mt-2 text-gray-500 group-hover:text-blue-600 transition-colors">Flipkart</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Statistics Section-->
+  <section class="w-full h-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 py-20 animate-gradient relative overflow-hidden">
+    <div class="w-[1060px] mx-auto">
+      <h2 class="text-center text-4xl font-mullish font-bold text-white mb-4">Powering Growth Across India</h2>
+      <div class="w-6 h-1 bg-green-400 mx-auto mb-12"></div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Stat 1 -->
+        <div class="text-center animate-fade-in-up delay-100">
+          <div class="glass hover-glow rounded-xl p-8 cursor-pointer">
+            <h3 class="text-5xl font-bold text-white mb-2">50M+</h3>
+            <p class="text-blue-100 font-mullish text-lg">Transactions Daily</p>
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="text-center animate-fade-in-up delay-100">
+          <div class="glass hover-glow rounded-xl p-8 cursor-pointer">
+            <h3 class="text-5xl font-bold text-white mb-2">8M+</h3>
+            <p class="text-blue-100 font-mullish text-lg">Businesses Trust Us</p>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="text-center animate-fade-in-up delay-100">
+          <div class="glass hover-glow rounded-xl p-8 cursor-pointer">
+            <h3 class="text-5xl font-bold text-white mb-2">99.99%</h3>
+            <p class="text-blue-100 font-mullish text-lg">Uptime Guarantee</p>
+          </div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="text-center animate-fade-in-up delay-100">
+          <div class="glass hover-glow rounded-xl p-8 cursor-pointer">
+            <h3 class="text-5xl font-bold text-white mb-2">100+</h3>
+            <p class="text-blue-100 font-mullish text-lg">Payment Methods</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="mt-16 text-center animate-fade-in-up delay-300">
+        <p class="text-white text-xl font-mullish mb-6">Join millions of businesses already growing with Razorpay</p>
+        <button class="btn-primary hover-shine animate-glow">
+          Get Started Now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!--Footer Section-->
+  <footer class="w-full bg-[#0B1D3B] text-white pt-16 pb-8">
+    <div class="w-[1060px] mx-auto">
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Column 1: Products -->
+        <div>
+          <h3 class="font-mullish font-bold text-lg mb-4">Products</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Payment Gateway</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Payment Links</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Payment Pages</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Subscriptions</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Smart Collect</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Route</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">RazorpayX</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Resources -->
+        <div>
+          <h3 class="font-mullish font-bold text-lg mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Documentation</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">API Reference</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Integrations</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Blog</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Learn</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Guides</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Videos</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Company -->
+        <div>
+          <h3 class="font-mullish font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">About Us</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Careers</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Press</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Partners</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Investors</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Brand Assets</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Support -->
+        <div>
+          <h3 class="font-mullish font-bold text-lg mb-4">Support</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Contact Us</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Help Center</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">FAQs</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Status</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Security</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors font-mullish">Compliance</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Newsletter & Social -->
+        <div>
+          <h3 class="font-mullish font-bold text-lg mb-4">Stay Connected</h3>
+          <p class="text-gray-300 font-mullish mb-4 text-sm">Subscribe to our newsletter for updates</p>
+          
+          <!-- Newsletter Form -->
+          <div class="mb-6">
+            <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-md bg-white bg-opacity-10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 font-mullish mb-2">
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors font-mullish">
+              Subscribe
+            </button>
+          </div>
+
+          <!-- Social Media Icons -->
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-700 pt-8">
+        <!-- Bottom Footer -->
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <img src="https://razorpay-clone.netlify.app/assets/logo-803a4a65.svg" alt="Razorpay Logo" class="h-6">
+          </div>
+          
+          <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400 font-mullish mb-4 md:mb-0">
+            <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+            <a href="#" class="hover:text-blue-400 transition-colors">Cookie Policy</a>
+            <a href="#" class="hover:text-blue-400 transition-colors">Refund Policy</a>
+          </div>
+          
+          <div class="text-gray-400 text-sm font-mullish">
+            © 2024 Razorpay. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Creative Animations Script -->
+<script src="script.js"></script>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+  const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+  // Open mobile menu
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      setTimeout(() => {
+        mobileMenuDrawer.classList.remove('translate-x-full');
+      }, 10);
+    });
+  }
+
+  // Close mobile menu
+  if (closeMobileMenu) {
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenuDrawer.classList.add('translate-x-full');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300);
+    });
+  }
+
+  // Close when clicking outside
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenuDrawer.classList.add('translate-x-full');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenuDrawer.classList.add('translate-x-full');
+            setTimeout(() => {
+              mobileMenu.classList.add('hidden');
+            }, 300);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>

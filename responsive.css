@@ -1,0 +1,281 @@
+/* ============================================
+   MOBILE RESPONSIVE STYLES - COMPREHENSIVE
+   ============================================ */
+
+/* Base responsive fixes */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Mobile First - Small devices (phones, less than 640px) */
+@media (max-width: 640px) {
+
+    /* Typography adjustments */
+    h1 {
+        font-size: 1.875rem !important;
+        line-height: 2.25rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+    }
+
+    p {
+        font-size: 0.875rem !important;
+        line-height: 1.5rem !important;
+    }
+
+    /* Container adjustments */
+    .w-\[1060px\],
+    .w-\[1030px\],
+    .w-\[1100px\],
+    .max-w-\[1030px\],
+    .max-w-\[695px\],
+    .max-w-\[600px\] {
+        width: 95% !important;
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Grid adjustments */
+    .grid-cols-3,
+    .grid-cols-4,
+    .grid-cols-5,
+    .md\:grid-cols-3,
+    .md\:grid-cols-4,
+    .md\:grid-cols-5 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    /* Flex to column */
+    .flex {
+        flex-direction: column !important;
+    }
+
+    /* Spacing */
+    .gap-8 {
+        gap: 1rem !important;
+    }
+
+    .gap-12 {
+        gap: 1.5rem !important;
+    }
+
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .pt-16 {
+        padding-top: 2rem !important;
+    }
+
+    .pb-8 {
+        padding-bottom: 2rem !important;
+    }
+
+    .px-8 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary,
+    button {
+        width: 100% !important;
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    /* Images */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Premium cards */
+    .premium-card {
+        padding: 1.25rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Glass cards */
+    .glass {
+        padding: 1.5rem !important;
+    }
+
+    /* Remove absolute positioning on mobile */
+    .absolute {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+
+    /* Fix margins */
+    .ml-\[160px\],
+    .ml-\[420px\],
+    .ml-\[675px\],
+    .ml-\[754px\],
+    .ml-\[560px\],
+    .mx-\[560px\],
+    .ml-\[233px\],
+    .ml-\[285px\],
+    .mr-20,
+    .ml-20,
+    .pl-56 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    /* Text alignment */
+    .text-left {
+        text-align: center !important;
+    }
+
+    /* Hero section specific */
+    section.bg-\[#010030\] .flex {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    section.bg-\[#010030\] img {
+        margin-top: 2rem !important;
+    }
+
+    /* Navbar mobile */
+    nav ul {
+        display: none !important;
+    }
+
+    /* Footer mobile */
+    footer .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        gap: 2rem !important;
+    }
+
+    footer .flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    /* Stats section */
+    .glass h3 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Company icons */
+    .company-icons svg {
+        height: 2.5rem !important;
+        width: 2.5rem !important;
+    }
+
+    /* Hide overflow */
+    .overflow-hidden {
+        overflow: hidden !important;
+    }
+
+    /* Fix width issues */
+    .w-full {
+        width: 100% !important;
+    }
+
+    /* Testimonial cards */
+    .premium-card .flex {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    .premium-card .w-12 {
+        flex-shrink: 0 !important;
+    }
+}
+
+/* Tablet devices (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+    .w-\[1060px\],
+    .w-\[1030px\],
+    .w-\[1100px\] {
+        width: 90% !important;
+        max-width: 100% !important;
+    }
+
+    h1 {
+        font-size: 2.25rem !important;
+    }
+
+    h2 {
+        font-size: 1.875rem !important;
+    }
+
+    .grid-cols-4,
+    .grid-cols-5,
+    .md\:grid-cols-4,
+    .md\:grid-cols-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .grid-cols-3,
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Large tablets (1025px to 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    .w-\[1060px\],
+    .w-\[1030px\],
+    .w-\[1100px\] {
+        width: 95% !important;
+    }
+}
+
+/* Extra small devices (less than 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.25rem !important;
+    }
+
+    h3 {
+        font-size: 1.125rem !important;
+    }
+
+    .glass h3 {
+        font-size: 2rem !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        font-size: 0.8125rem !important;
+        padding: 0.75rem 1.25rem !important;
+    }
+}
